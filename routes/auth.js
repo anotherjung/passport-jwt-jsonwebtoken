@@ -13,8 +13,8 @@ var JwtStrategy = passportJWT.Strategy;
 var users = [
   {
     id: 1,
-    name: 'javier',
-    password: 'password123'
+    name: 'name',
+    password: 'password'
   }
 ];
 
@@ -52,12 +52,14 @@ router.get("/", function(req, res) {
 });
 
 router.post("/login", function(req, res) {
+  console.log(1,req.body)
   if(req.body.name && req.body.password){
     var name = req.body.name;
     var password = req.body.password;
   }
   // usually this would be a database call:
   var user = users[_.findIndex(users, {name: name})];
+  console.log(22,user)
   if( ! user ){
     res.status(401).json({message:"no such user found"});
   }
@@ -73,11 +75,13 @@ router.post("/login", function(req, res) {
 });
 
 router.get("/secret", passport.authenticate('jwt', { session: false }), function(req, res){
+  console.log(23,req.body)
   res.json({message: "Success!"});
 });
 
 router.get("/secretDebug",
   function(req, res, next){
+    console.log(23,req.body)
     console.log(req.get('Authorization'));
     next();
   }, function(req, res){
