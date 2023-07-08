@@ -9,3 +9,6 @@ pnpm start
 ./login.sh
 - POST endpoint /login jwt.sign 
 - GET endpoint /secret passport.authenticate
+
+/auth.js
+jwtOptions.secretOrKey = 'mysecretword';
