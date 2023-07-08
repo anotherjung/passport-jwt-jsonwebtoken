@@ -51,6 +51,7 @@ router.get("/", function(req, res) {
   res.json({message: "The app is running!"});
 });
 
+//endpoint /login jwt.sign
 router.post("/login", function(req, res) {
   console.log(1,req.body)
   if(req.body.name && req.body.password){
@@ -68,20 +69,21 @@ router.post("/login", function(req, res) {
     // from now on we'll identify the user by the id and the id is the only personalized value that goes into our token
     var payload = {id: user.id};
     var token = jwt.sign(payload, jwtOptions.secretOrKey);
-    res.json({message: "ok", token: token});
+    res.json({message: "password ok", token: token});
   } else {
     res.status(401).json({message:"invalid credentials"});
   }
 });
 
+//endpoint /secret passport.authenticate
 router.get("/secret", passport.authenticate('jwt', { session: false }), function(req, res){
-  console.log(23,req.body)
-  res.json({message: "Success!"});
+  console.log(233,req.body)
+  res.json({message: "authenticate Success!"});
 });
 
 router.get("/secretDebug",
   function(req, res, next){
-    console.log(23,req.body)
+    console.log(233,req.body)
     console.log(req.get('Authorization'));
     next();
   }, function(req, res){

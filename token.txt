@@ -1,0 +1,1 @@
+{"message":"ok","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg4ODQwMzI0fQ.xlJAWHqX4tXn6Xj2BLnWSkPyTep82eS-WqIQ_sMOM2M"}
